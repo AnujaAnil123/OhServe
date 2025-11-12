@@ -12,6 +12,12 @@
   --oh-accent: #F2C94C;      /* warm yellow accent */
   --oh-shadow: #B7BDC2;      /* subtle shadow / border */
 }
+html, body {
+  overflow-x: hidden;
+   background: url(../img/hero-bg.jpg) top center ;
+    background-size: cover;
+}
+
 
 #spinner {
     opacity: 0;
