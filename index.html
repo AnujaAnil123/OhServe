@@ -121,49 +121,22 @@
                 <div class="col-lg-6">
 <div class="owl-carousel header-carousel animated fadeIn">
     <div class="item">
-      <video
-  autoplay
-  muted
-  loop
-  playsinline
-  no-controls
-  webkit-playsinline
-  preload="auto"
-  class="img-fluid"
-  style="width: 100%; height: auto; object-fit: cover;"
->
-  <source src="img/video2.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+        <video autoplay muted loop playsinline no-controls webkit-playsinline preload="auto" class="img-fluid"
+            style="width: 100%; height: auto; object-fit: cover;">
+            <source src="img/video2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
 
     </div>
     <div class="item">
-        <video
-  autoplay
-  muted
-  loop
-  playsinline
-  no-controls
-  webkit-playsinline
-  preload="auto"
-  class="img-fluid"
-  style="width: 100%; height: auto; object-fit: cover;"
->
+        <video autoplay muted loop playsinline no-controls webkit-playsinline preload="auto" class="img-fluid"
+            style="width: 100%; height: auto; object-fit: cover;">
             <source src="img/video3.mp4" type="video/mp4">
         </video>
     </div>
     <div class="item">
-        <video
-  autoplay
-  muted
-  loop
-  playsinline
-  webkit-playsinline
-  preload="auto"
-  no-controls
-  class="img-fluid"
-  style="width: 100%; height: auto; object-fit: cover;"
->
+        <video autoplay muted loop playsinline webkit-playsinline preload="auto" no-controls class="img-fluid"
+            style="width: 100%; height: auto; object-fit: cover;">
             <source src="img/video4.mp4" type="video/mp4">
         </video>
     </div>
@@ -177,36 +150,47 @@ $(document).ready(function(){
         items: 1,
         loop: true,
         nav: true,
-        
+        autoplay: false, // we control video playback
+        autoplayHoverPause: false
     });
 
     function playCurrentVideo() {
+        // Stop all videos first
+        owl.find('video').each(function(){
+            this.pause();
+            this.currentTime = 0;
+        });
+
+        // Play the active slide video
         var currentItem = owl.find('.owl-item.active video').get(0);
         if(currentItem) {
-            currentItem.currentTime = 0;
-            currentItem.play();
+            currentItem.muted = true;          // ensure muted
+            currentItem.playsInline = true;    // playsinline
+            currentItem.webkitPlaysInline = true;
+            var playPromise = currentItem.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(err => {
+                    console.log("iOS autoplay blocked, waiting for user interaction", err);
+                });
+            }
 
             // When video ends, move to next slide
             currentItem.onended = function() {
                 owl.trigger('next.owl.carousel');
-            }
+            };
         }
     }
 
-    // Play the first video
+    // Play the first video on load
     playCurrentVideo();
 
     // When carousel changes (manual nav or next), play the new video
     owl.on('changed.owl.carousel', function() {
-        // stop previous videos
-        owl.find('video').each(function(){
-            this.pause();
-        });
-
         playCurrentVideo();
     });
 });
 </script>
+
 
 
                 </div>
