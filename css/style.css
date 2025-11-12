@@ -564,22 +564,43 @@ html, body {
 /* === Grid & Card Styles === */
 .product-grid {
   display: grid;
-grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr); /* 4 columns on desktop */
   gap: 20px;
-  padding: 40px; /* equal left & right */
-  box-sizing: border-box; 
-  max-width: 100%; 
+  padding: 40px;
+  box-sizing: border-box;
+  max-width: 100%;
   margin: 0 auto;
 }
 
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for medium screens */
+  }
+}
+
+@media (max-width: 900px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+    padding: 30px; /* optional: reduce padding */
+  }
+}
+
+@media (max-width: 600px) {
+  .product-grid {
+    grid-template-columns: 1fr; /* 1 column for mobile */
+    padding: 20px;
+  }
+}
+
+/* Product card styles */
 .product-card {
-  /* Make card width automatic, fit grid column */
   width: 100%;
   background: white;
   border-radius: 20px;
   box-shadow: 0 10px 40px rgba(0,0,0,0.08);
   overflow: hidden;
-  opacity: 0; /* fade-in start */
+  opacity: 0;
   transform: scale(0.95);
   transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.4s ease;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -591,19 +612,13 @@ grid-template-columns: repeat(4, 1fr);
   transform: scale(1);
 }
 
-/* Optional hover effect */
+/* Hover effect */
 .product-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-}
-
-/* Hover effects */
-.product-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-10px) scale(1.05);
   box-shadow: 0 20px 50px rgba(0,0,0,0.15);
 }
 
-/* Badge and inner styles (same as your original) */
+/* Badge styling */
 .product-badge {
   position: absolute;
   top: 15px;
@@ -619,6 +634,7 @@ grid-template-columns: repeat(4, 1fr);
   z-index: 10;
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
+
 
 .product-tilt-effect { overflow: hidden; transform-style: preserve-3d; perspective: 1000px; }
 .product-image { height: 200px; overflow: hidden; position: relative; }
