@@ -562,35 +562,101 @@ html, body {
 
 
 /* === Grid & Card Styles === */
+/* Reset broken layout behaviors */
+* {
+  position: relative;
+  transform: none !important;
+}
+
+body, html {
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* === PRODUCT GRID LAYOUT === */
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr); /* 4 columns on desktop */
   gap: 20px;
   padding: 40px;
   box-sizing: border-box;
-  max-width: 100%;
+  width: 100%;
   margin: 0 auto;
-  overflow: visible; /* important for mobile scrolling */
+  position: relative; /* ensure it stays in document flow */
+  overflow: visible; /* allows elements inside to grow naturally */
+}
+
+/* === RESPONSIVE ADJUSTMENTS === */
+@media (max-width: 1200px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 30px 20px;
+  }
 }
 
 @media (max-width: 600px) {
   .product-grid {
     grid-template-columns: 1fr;
-    padding: 20px 10px;
+    padding: 20px 15px;
     gap: 15px;
   }
 }
 
+/* === PRODUCT CARD === */
 .product-card {
+  position: relative; /* ensures card is part of grid layout */
   width: 100%;
-  position: relative; /* ensure cards are in normal flow */
+  height: auto; /* let content define the height */
   background: white;
   border-radius: 20px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
   overflow: hidden;
   opacity: 0;
   transform: scale(0.95);
   transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.4s ease;
+}
+
+/* === FADE-IN EFFECT === */
+.product-card.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* === HOVER EFFECT === */
+.product-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+/* === BADGE === */
+.product-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: linear-gradient(45deg, #18181b6a, #27272a);
+  backdrop-filter: blur(10px);
+  color: white;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-radius: 12px;
+  z-index: 10;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* === ENSURE PAGE SCROLLS === */
+html, body {
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 
