@@ -330,44 +330,153 @@ function sendToWhatsApp() {
 
 
      <!-- Newsletter Start -->
-    <div class="container-fluid bg-primary newsletter p-5">
-        <div class="container p-5">
-            <div class="row g-0 align-items-center">
-                <div class="col-md-5 ps-lg-0 text-start wow fadeIn" data-wow-delay="0.2s">
-                    <video muted style=" border-bottom-right-radius: 10px; border-radius: 10px;" no-control autoplay loop class="img-fluid w-100" src="img\video1.mp4" alt="">
-                </div>
-                <div class="col-md-7 py-5 newsletter-text wow fadeIn" data-wow-delay="0.5s">
-                    
-                 
-    <div class="p-5">
-        <h1 class="mb-5">
-            Get in Touch 
-            <span style="border-radius: 5px;" class="text-uppercase text-primary bg-white px-2">Contact Us</span>
-        </h1>
-         <div class="d-flex pt-1 align-items-center ">
+    <style>
+  /* === CONTAINER === */
+  .newsletter {
+    width: 100%;
+    background-color: #f75707;
+    padding: 60px 20px;
+    box-sizing: border-box;
+  }
 
-                                    <a class="btn btn-outline-primary btn-square border-2 me-2" style=" border-radius: 25px;" target="_blank" href="https://www.instagram.com/ohser_ve/"><i class="fa fa-phone"></i></a>
+  .newsletter-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
 
-                                                            <a class="btn btn-outline-primary btn-square border-2 me-2" style=" border-radius: 25px;" target="_blank" href="whatsapp://send?phone=919447735326&text=Hi"><i style="scale: 1.4; color: #25D366;" class="fab fa-whatsapp"></i></a>
+  /* === VIDEO COLUMN === */
+  .newsletter-video {
+    flex: 1 1 45%;
+    min-width: 300px;
+  }
 
+  .newsletter-video video {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+  }
 
-                                               <a class="btn btn-outline-primary btn-square border-2 me-2" style=" border-radius: 25px;" target="_blank" href="https://www.instagram.com/ohser_ve/"><i class="fab fa-instagram"></i></a>
+  /* === TEXT COLUMN === */
+  .newsletter-text {
+    flex: 1 1 50%;
+    min-width: 300px;
+    color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+  }
 
-                        <a class="btn btn-outline-primary btn-square border-2 me-2" style=" border-radius: 25px;" target="_blank"  href="https://www.facebook.com/profile.php?id=61582679766175"><i class="fab fa-facebook-f"></i></a>
-                        
-                       
-                                               <a class="btn btn-outline-primary btn-square border-2 me-2" style=" border-radius: 25px;" target="_blank"  href="mailto:info@ohserve.com"><i class="fa fa-envelope"></i></a>
+  .newsletter-text h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+  }
 
-                    </div>
+  .newsletter-text h1 span {
+    background-color: #fff;
+    color: #f75707;
+    padding: 4px 8px;
+    border-radius: 5px;
+    text-transform: uppercase;
+  }
+
+  .newsletter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .newsletter-buttons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 25px;
+    padding: 10px 16px;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .btn-phone { border: 2px solid #0d6b68; color: #0d6b68; background: transparent; }
+  .btn-whatsapp { border: 2px solid #0d6b68; color: #0d6b68; background: transparent; }
+  .btn-instagram { border: 2px solid #0d6b68; color: #0d6b68; background: transparent; }
+  .btn-facebook { border: 2px solid #0d6b68; color: #0d6b68; background: transparent; }
+  .btn-email { border: 2px solid #0d6b68; color: #0d6b68; background: transparent; }
+
+  .newsletter-buttons a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    color: #fff;
+    background-color: #0d6b68;
+  }
+
+  /* === RESPONSIVE === */
+  @media (max-width: 900px) {
+    .newsletter-container {
+      flex-direction: column;
+      align-items: center;
+    }
+    .newsletter-video,
+    .newsletter-text {
+      flex: 1 1 100%;
+      min-width: 0;
+    }
+    .newsletter-text h1 {
+      font-size: 2rem;
+      text-align: center;
+    }
+    .newsletter-buttons {
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .newsletter-text h1 {
+      font-size: 1.5rem;
+    }
+    .newsletter-buttons a {
+      padding: 8px 12px;
+      font-size: 0.9rem;
+    }
+  }
+</style>
+
+<div class="newsletter">
+  <div class="newsletter-container">
+    
+    <!-- VIDEO COLUMN -->
+    <div class="newsletter-video">
+      <video muted autoplay loop playsinline>
+        <source src="img/video1.mp4" type="video/mp4">
+      </video>
     </div>
 
+    <!-- TEXT COLUMN -->
+    <div class="newsletter-text">
+      <h1>
+        Get in Touch
+        <span>Contact Us</span>
+      </h1>
 
-
-
-                </div>
-            </div>
-        </div>
+      <div class="newsletter-buttons">
+        <a href="tel:+919447735326" class="btn-phone"><i class="fa fa-phone"></i></a>
+        <a href="whatsapp://send?phone=919447735326&text=Hi" class="btn-whatsapp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.instagram.com/ohser_ve/" class="btn-instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=61582679766175" class="btn-facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="mailto:info@ohserve.com" class="btn-email"><i class="fa fa-envelope"></i></a>
+      </div>
     </div>
+
+  </div>
+</div>
+
     <!-- Newsletter End -->
 
 
