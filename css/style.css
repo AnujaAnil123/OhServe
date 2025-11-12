@@ -563,16 +563,7 @@ html, body {
 
 /* === Grid & Card Styles === */
 /* Reset broken layout behaviors */
-* {
-  position: relative;
-  transform: none !important;
-}
 
-body, html {
-  height: auto;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
 
 /* === PRODUCT GRID LAYOUT === */
 .product-grid {
@@ -653,11 +644,7 @@ body, html {
 }
 
 /* === ENSURE PAGE SCROLLS === */
-html, body {
-  height: auto;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
+
 
 
 /* Fade-in animation */
