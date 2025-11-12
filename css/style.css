@@ -564,38 +564,26 @@ html, body {
 /* === Grid & Card Styles === */
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 columns on desktop */
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   padding: 40px;
   box-sizing: border-box;
   max-width: 100%;
   margin: 0 auto;
-}
-
-/* Responsive adjustments */
-@media (max-width: 1200px) {
-  .product-grid {
-    grid-template-columns: repeat(3, 1fr); /* 3 columns for medium screens */
-  }
-}
-
-@media (max-width: 900px) {
-  .product-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
-    padding: 30px; /* optional: reduce padding */
-  }
+  overflow: visible; /* important for mobile scrolling */
 }
 
 @media (max-width: 600px) {
   .product-grid {
-    grid-template-columns: 1fr; /* 1 column for mobile */
-    padding: 20px;
+    grid-template-columns: 1fr;
+    padding: 20px 10px;
+    gap: 15px;
   }
 }
 
-/* Product card styles */
 .product-card {
   width: 100%;
+  position: relative; /* ensure cards are in normal flow */
   background: white;
   border-radius: 20px;
   box-shadow: 0 10px 40px rgba(0,0,0,0.08);
@@ -603,8 +591,8 @@ html, body {
   opacity: 0;
   transform: scale(0.95);
   transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.4s ease;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 
 /* Fade-in animation */
 .product-card.visible {
