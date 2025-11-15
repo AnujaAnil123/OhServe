@@ -463,6 +463,7 @@ html, body {
     color: rgba(255,255,255,.5);
     font-weight: normal;
     transition: .3s;
+    
 }
 
 .footer .btn.btn-link:hover {
@@ -753,3 +754,75 @@ html, body {
 .product-card.visible {
   animation: fadeUp 0.8s ease forwards;
 }
+
+
+.call-now-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  font-size: 20px;
+  font-weight: 600;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  color: black;
+ background: linear-gradient(135deg,  #eabc32, #f97e04);   /* purple/pink */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.call-now-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+.call-now-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.call-now-btn .icon {
+  font-size: 22px;
+}
+
+/* Default: show full number on desktop */
+.desktop-text {
+    display: inline;
+   
+
+}
+
+.button-container{
+     position: relative;
+left: calc(100vw - 500px);
+}
+
+.mobile-text {
+    display: none;
+}
+
+/* MOBILE VIEW */
+@media (max-width: 768px) {
+
+    .desktop-text {
+        display: none;
+    }
+
+    .button-container{
+ position: relative;
+left: calc(100vw - 350px);
+    }
+
+    .mobile-text {
+        display: inline;
+        font-weight: bold;
+       
+
+    }
+}
+
+
+
+
+
