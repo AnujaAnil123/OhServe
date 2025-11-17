@@ -191,7 +191,7 @@ Our team is always ready to assist with any inquiries you may have. Whether you�
 
 If you have any suggestions or feedback, we’d be happy to hear those too — your input is valuable to us as we continue to improve.</p>
                     <div class="wow fadeIn" data-wow-delay="0.3s">
-                       <form >
+                       <form  onsubmit="sendToWhatsApp(); return false;">
 
                             <div class="row g-3">
                                 <div class="col-md-6">
@@ -222,7 +222,7 @@ If you have any suggestions or feedback, we’d be happy to hear those too — y
                                 <div class="col-12">
                                     
                                     
-                                    <button class="btn btn-primary w-100 py-3" type="submit" onclick="sendToWhatsApp()">Send via WhatsApp</button>
+                                    <button class="btn btn-primary w-100 py-3" type="submit" >Send via WhatsApp</button>
                                 </div>
                             </div>
                         </form>
@@ -238,12 +238,12 @@ function sendToWhatsApp() {
   const email = document.getElementById("email").value;
   const subject = document.getElementById("subject").value;
   const message = document.getElementById("message").value;
-   alert("Name: " + name + "\nEmail: " + email + "\nSubject: " + subject + "\nMessage: " + message);
+   
 
 
   const phone = "919074205288"; // Your WhatsApp number without '+'
   
-  const text = `*New Inquiry from Website*\n*Name:* ${name}\n*Email:* ${email}\n*Subject:* ${subject}\n*Message:* ${message}`;
+  const text = `*New Inquiry from Website* \n *Name:* ${name} \n *Email:* ${email} \n *Subject:* ${subject} \n *Message:* ${message}`;
   const encodedText = encodeURIComponent(text);
 
   // Opens WhatsApp app directly on mobile
