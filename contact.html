@@ -247,7 +247,7 @@ function sendToWhatsApp() {
   const encodedText = encodeURIComponent(text);
 
   // Opens WhatsApp app directly on mobile
-  window.location.href = `whatsapp://send?phone=${phone}&text=${encodedText}`;
+  window.location.href = `whatsapp://send?phone=${phone}?&text=${encodedText}`;
 }
 
 
