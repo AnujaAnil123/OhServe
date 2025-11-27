@@ -811,7 +811,7 @@ html, body {
 
     .button-container{
  position: relative;
-left: calc(100vw - 350px);
+left: calc(100vw - 350px) !important;
     }
 
     .mobile-text {
