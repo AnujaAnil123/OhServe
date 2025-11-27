@@ -31,6 +31,20 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+     <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "OhServe",
+    "url": "https://ohserve.com",
+    "logo": "https://ohserve.com/img/logo/IMG_9074_bg-removebg-preview.png",
+    "sameAs": [
+      "https://www.facebook.com/Ohserve Solutions",
+      "https://www.instagram.com/ohser_ve/"
+    ],
+    "description": "ArabianHub offers premium sweets, chocolates, and gourmet delicacies crafted with love and tradition."
+  }
+  </script>
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-52EHJ5B83T"></script>
@@ -163,7 +177,7 @@ $(document).ready(function(){
         items: 1,
         loop: true,
         nav: true,
-        autoplay: true, // we control video playback
+        autoplay: false, // we control video playback
         autoplayHoverPause: false
     });
 
@@ -175,6 +189,7 @@ $(document).ready(function(){
         });
 
         // Play the active slide video
+        
         var currentItem = owl.find('.owl-item.active video').get(0);
         if(currentItem) {
             currentItem.muted = true;          // ensure muted
