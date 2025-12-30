@@ -3,3 +3,7 @@ Allow: /
 
 # Optional: Allow logo path explicitly
 Allow: /img/icons/logo.PNG
+
+
+# Sitemap location
+Sitemap: https://www.ohserve.com/sitemap.xml
