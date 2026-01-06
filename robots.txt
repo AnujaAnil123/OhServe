@@ -4,9 +4,6 @@ Disallow: /admin/
 
 # Optional: Allow logo path explicitly
 Allow: /img/icons/logo.PNG
-Allow: /contact
-Allow: /about
-Allow: /service
 
 
 
