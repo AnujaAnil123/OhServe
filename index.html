@@ -708,14 +708,43 @@ content="Professional home cleaning services in Kochi. Deep cleaning. Kitchen, w
   flex-wrap: wrap; }
 
   .op-card {
-    background: #fff; border: 1px solid #ede8e3;
-    border-radius: 20px; padding: 36px 30px 40px;
-    position: relative; overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    flex: 1 1 0; /* grow/shrink equally */
+  background: #fff;
+  border: 1px solid #ede8e3;
+  border-radius: 20px;
+  padding: 36px 30px 40px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  flex: 1 1 300px; /* better base size */
   display: flex;
-  flex-direction: column; /* ensures content flows vertically */
+  flex-direction: column;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .op-card {
+    padding: 28px 24px 32px;
+    border-radius: 16px;
   }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .op-card {
+    flex: 1 1 100%; /* full width */
+    padding: 24px 20px;
+    border-radius: 14px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .op-card {
+    padding: 20px 16px;
+    border-radius: 12px;
+  }
+}
   .op-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(255,116,31,0.10); }
   .op-card::before {
     content: ''; position: absolute; top: -60px; right: -60px;
