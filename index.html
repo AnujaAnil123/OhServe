@@ -642,7 +642,332 @@ content="Professional home cleaning services in Kochi. Deep cleaning. Kitchen, w
         </div>
     </div>
     <!-- Project End -->
+<!-- Property management start -->
+ <style>
+  .ohserve-pricing {
+    padding: 100px 24px;
+    font-family: 'DM Sans', sans-serif;
+    position: relative;
+    overflow: hidden;
+  }
+  .ohserve-pricing::before {
+    content: '';
+    position: absolute;
+    top: -120px; right: -120px;
+    width: 500px; height: 200px;
+    background: radial-gradient(circle, rgba(255,116,31,0.06) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .ohserve-pricing::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -80px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(255,116,31,0.05) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .op-inner {
+    max-width: 1140px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .op-header { text-align: center; margin-bottom: 52px; }
+  .op-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: #fff3ec; color: #ff741f;
+    font-size: 11px; font-weight: 600; letter-spacing: 2.5px;
+    text-transform: uppercase; padding: 6px 18px; border-radius: 30px; margin-bottom: 22px;
+  }
+  .op-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 700; color: #1a1a1a; margin: 0 0 14px; line-height: 1.2;
+  }
+  .op-title span { color: #ff741f; }
+  .op-divider { width: 48px; height: 3px; background: #ff741f; margin: 0 auto 20px; border-radius: 2px; }
+  .op-subtitle { color: #777; font-size: 15px; max-width: 500px; margin: 0 auto; line-height: 1.7; }
 
+  .op-stats {
+    display: flex; justify-content: center; gap: 0;
+    margin-bottom: 52px; flex-wrap: wrap;
+    background: #fafafa; border: 1px solid #f0ebe6;
+    border-radius: 16px; padding: 28px 40px;
+    max-width: 740px; margin-left: auto; margin-right: auto;
+  }
+  .op-stat { text-align: center; flex: 1; min-width: 110px; padding: 0 20px; }
+  .op-stat + .op-stat { border-left: 1px solid #ede8e3; }
+  .op-stat-icon { color: #ff741f; font-size: 16px; margin-bottom: 8px; }
+  .op-stat-num { font-family: 'Fraunces', serif; font-size: 1.8rem; font-weight: 700; color: #1a1a1a; line-height: 1; }
+  .op-stat-label { font-size: 11px; color: #aaa; margin-top: 4px; letter-spacing: 0.5px; }
+
+  .op-cards { display: flex;
+  gap: 24px;
+  flex-wrap: wrap; }
+
+  .op-card {
+    background: #fff; border: 1px solid #ede8e3;
+    border-radius: 20px; padding: 36px 30px 40px;
+    position: relative; overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex: 1 1 0; /* grow/shrink equally */
+  display: flex;
+  flex-direction: column; /* ensures content flows vertically */
+  }
+  .op-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(255,116,31,0.10); }
+  .op-card::before {
+    content: ''; position: absolute; top: -60px; right: -60px;
+    width: 160px; height: 160px; border-radius: 50%;
+    background: rgba(255,116,31,0.04); transition: transform 0.4s ease;
+  }
+  .op-card:hover::before { transform: scale(1.5); }
+
+  .op-freq {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: #f7f4f1; color: #888;
+    font-size: 11px; font-weight: 500; letter-spacing: 1px;
+    text-transform: uppercase; padding: 5px 12px; border-radius: 20px; margin-bottom: 18px;
+  }
+  .op-plan-name { font-family: 'Fraunces', serif; font-size: 1.6rem; font-weight: 700; color: #1a1a1a; margin: 0 0 6px; }
+  .op-plan-desc { font-size: 13px; color: #999; line-height: 1.6; margin-bottom: 20px; min-height: 52px; }
+
+  .op-icon-row { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+  .op-icon-pill {
+    display: flex; align-items: center; gap: 5px;
+    background: #f7f4f1; border-radius: 8px; padding: 5px 10px;
+    font-size: 11px; color: #888;
+  }
+  .op-icon-pill i { color: #ff741f; font-size: 10px; }
+
+  .op-price-block {
+    display: flex; align-items: flex-end; gap: 5px;
+    margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid #f0ebe6;
+  }
+  .op-currency { font-size: 1.1rem; font-weight: 600; color: #ff741f; margin-bottom: 7px; }
+  .op-amount { font-family: 'Fraunces', serif; font-size: 2.6rem; font-weight: 700; color: #1a1a1a; line-height: 1; }
+  .op-per { font-size: 13px; color: #aaa; margin-bottom: 7px; }
+
+  .op-btns { display: flex; flex-direction: column; gap: 10px; margin-bottom: 26px; }
+  .op-btn-call {
+    display: flex; align-items: center; justify-content: center; gap: 9px;
+    background: #ff741f; color: #fff;
+    font-size: 13px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+    padding: 13px 20px; border-radius: 10px; text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .op-btn-call:hover { background: #e5600d; transform: scale(1.02); color: #fff; text-decoration: none; }
+  .op-btn-wa {
+    display: flex; align-items: center; justify-content: center; gap: 9px;
+    background: #fff; color: #25D366;
+    font-size: 13px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+    padding: 12px 20px; border-radius: 10px; text-decoration: none;
+    border: 1.5px solid #25D366; transition: background 0.2s, transform 0.15s;
+  }
+  .op-btn-wa:hover { background: #f0fdf4; transform: scale(1.02); text-decoration: none; }
+
+  .op-features-label {
+    font-size: 11px; font-weight: 600; letter-spacing: 2px;
+    text-transform: uppercase; color: #ccc; margin-bottom: 14px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .op-features-label::after { content: ''; flex: 1; height: 1px; background: #f0ebe6; }
+  .op-features { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+  .op-features li { display: flex; align-items: flex-start; gap: 10px; font-size: 13.5px; color: #555; line-height: 1.5; }
+  .op-check {
+    width: 18px; height: 18px; min-width: 18px;
+    background: #fff3ec; border-radius: 5px;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .op-check i { font-size: 9px; color: #ff741f; }
+
+  /* Highlighted card */
+  .op-card.op-highlight {
+    background: #1a1a1a; border-color: #1a1a1a;
+    transform: scale(1.04);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.18);
+  }
+  .op-card.op-highlight:hover {
+    transform: scale(1.04) translateY(-6px);
+    box-shadow: 0 32px 70px rgba(0,0,0,0.22);
+  }
+  .op-card.op-highlight::before { background: rgba(255,116,31,0.1); }
+  .op-card.op-highlight .op-freq { background: rgba(255,116,31,0.15); color: #ff741f; }
+  .op-card.op-highlight .op-plan-name { color: #fff; }
+  .op-card.op-highlight .op-plan-desc { color: #777; }
+  .op-card.op-highlight .op-icon-pill { background: rgba(255,255,255,0.07); color: #666; }
+  .op-card.op-highlight .op-amount { color: #fff; }
+  .op-card.op-highlight .op-per { color: #555; }
+  .op-card.op-highlight .op-price-block { border-color: #2a2a2a; }
+  .op-card.op-highlight .op-features li { color: #999; }
+  .op-card.op-highlight .op-features-label { color: #444; }
+  .op-card.op-highlight .op-features-label::after { background: #2a2a2a; }
+  .op-card.op-highlight .op-check { background: rgba(255,116,31,0.18); }
+  .op-card.op-highlight .op-btn-wa { border-color: #25D366; color: #25D366; background: transparent; }
+  .op-card.op-highlight .op-btn-wa:hover { background: rgba(37,211,102,0.08); }
+
+  .op-popular-badge {
+    position: absolute; top: 20px; right: 20px;
+    background: #ff741f; color: #fff;
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; padding: 4px 12px; border-radius: 20px;
+  }
+
+  @media (max-width: 900px) {
+    .op-cards { grid-template-columns: 1fr; }
+    .op-card.op-highlight { transform: scale(1); }
+    .op-card.op-highlight:hover { transform: translateY(-6px); }
+    .op-stat + .op-stat { border-left: none; border-top: 1px solid #ede8e3; padding-top: 20px; }
+    .op-stats { flex-direction: column; gap: 16px; }
+  }
+</style>
+
+<div class="ohserve-pricing">
+  <div class="op-inner">
+
+    <div class="op-header">
+      <div class="op-eyebrow"><i class="fa fa-solid fa-tag"></i> Membership Plans</div>
+      <h2 class="op-title">Choose Your <span>Care Frequency</span></h2>
+      <div class="op-divider"></div>
+      <p class="op-subtitle">Flexible plans built around how often your property needs attention — every visit is documented, professional, and thorough.</p>
+    </div>
+
+    <div class="op-stats" style="margin-bottom:52px;">
+      <div class="op-stat">
+        <div class="op-stat-icon"><i class="fa fa-solid fa-building"></i></div>
+        <div class="op-stat-num">500+</div>
+        <div class="op-stat-label">Properties Managed</div>
+      </div>
+      <div class="op-stat">
+        <div class="op-stat-icon"><i class="fa fa-solid fa-star"></i></div>
+        <div class="op-stat-num">98%</div>
+        <div class="op-stat-label">Client Satisfaction</div>
+      </div>
+      <div class="op-stat">
+        <div class="op-stat-icon"><i class="fa fa-solid fa-house"></i></div>
+        <div class="op-stat-num">5BHK</div>
+        <div class="op-stat-label">Max Coverage</div>
+      </div>
+      <div class="op-stat">
+        <div class="op-stat-icon"><i class="fa fa-solid fa-clock"></i></div>
+        <div class="op-stat-num">24h</div>
+        <div class="op-stat-label">Response Time</div>
+      </div>
+    </div>
+
+    <div class="op-cards">
+
+      <!-- Essentials -->
+      <div class="op-card">
+        <div class="op-freq"><i class="fa fa-solid fa-calendar-day"></i> Monthly once</div>
+        <h3 class="op-plan-name">Essentials</h3>
+        <p class="op-plan-desc">NRIs or homeowners who visit occasionally and want their property monitored and functional.</p>
+        <div class="op-icon-row">
+          <div class="op-icon-pill"><i class="fa fa-solid fa-camera"></i> Photo Reports</div>
+          <div class="op-icon-pill"><i class="fa fa-solid fa-bolt"></i> Utility Checks</div>
+          <div class="op-icon-pill"><i class="fa fa-solid fa-leaf"></i> Plant Care</div>
+        </div>
+        <div class="op-price-block">
+          <span class="op-currency">₹</span>
+          <span class="op-amount">4,999</span>
+          <span class="op-per">/ visit</span>
+        </div>
+        <div class="op-btns">
+          <a href="tel: +919074205288" class="op-btn-call"><i class="fa fa-solid fa-phone"></i> Call Now</a>
+          <a href="https://wa.me/919074205288?text=Hi%2C%20I%27m%20interested%20in%20the%20Essentials%20plan" target="_blank" class="op-btn-wa"><i class="fa fa-brands fa-whatsapp" style="font-size:15px;"></i> WhatsApp Us</a>
+        </div>
+        <div class="op-features-label">Includes</div>
+        <ul class="op-features">
+          <li><span class="op-check"><i class="fa fa-solid fa-check"></i></span> Monthly visit up to 3BHK (10 rooms)</li>
+          <li><span class="op-check"><i class="fa fa-solid fa-check"></i></span> Photos &amp; videos every visit</li>
+          <li><span class="op-check"><i class="fa fa-solid fa-check"></i></span> Air out doors &amp; windows monthly</li>
+          <li><span class="op-check"><i class="fa fa-solid fa-check"></i></span> Electricity, water, gas, telecom checks</li>
+          <li><span class="op-check"><i class="fa fa-solid fa-check"></i></span> Leak &amp; tank level inspection</li>
+          <li><span class="op-check"><i class="fa fa-solid fa-check"></i></span> Lights, fans, TV, AC, refrigerator check</li>
+          <li><span class="op-check"><i class="fa fa-solid fa-check"></i></span> Dish TV, cable, landline check</li>
+          <li><span class="op-check"><i class="fa fa-solid fa-check"></i></span> Indoor plant watering once/month</li>
+        </ul>
+      </div>
+
+      <!-- Premium (highlighted) -->
+      <div class="op-card op-highlight">
+        <div class="op-popular-badge"><i class="fa fa-solid fa-star" style="font-size:9px;"></i> Most Popular</div>
+        <div class="op-freq"><i class="fa fa-solid fa-calendar-week"></i> Every two weeks</div>
+        <h3 class="op-plan-name">Premium</h3>
+        <p class="op-plan-desc">For frequent visitors who expect seamless arrival and departure readiness at all times.</p>
+        <div class="op-icon-row">
+          <div class="op-icon-pill"><i class="fa fa-solid fa-camera"></i> Bi-weekly Reports</div>
+          <div class="op-icon-pill"><i class="fa fa-solid fa-snowflake"></i> AC Service</div>
+          <div class="op-icon-pill"><i class="fa fa-solid fa-wifi"></i> Network Check</div>
+        </div>
+        <div class="op-price-block">
+          <span class="op-currency">₹</span>
+          <span class="op-amount">4,499</span>
+          <span class="op-per">/ visit</span>
+        </div>
+        <div class="op-btns">
+          <a href="tel:+919074205288" class="op-btn-call"><i class="fa fa-solid fa-phone"></i> Call Now</a>
+          <a href="https://wa.me/919074205288?text=Hi%2C%20I%27m%20interested%20in%20the%20Premium%20plan" target="_blank" class="op-btn-wa"><i class="fa fa-brands fa-whatsapp" style="font-size:15px;"></i> WhatsApp Us</a>
+        </div>
+        <div class="op-features-label">Includes</div>
+        <ul class="op-features">
+          <li><span class="op-check"><i class="fa fa-solid fa-check"></i></span> Bi-weekly visits up to 3BHK</li>
+          <li><span class="op-check"><i class="fa fa-solid fa-check"></i></span> Photos &amp; videos every visit</li>
+          <li><span class="op-check"><i class="fa fa-solid fa-check"></i></span> Air out doors &amp; windows every 2 weeks</li>
+          <li><span class="op-check"><i class="fa fa-solid fa-check"></i></span> Additional device-specific checks</li>
+          <li><span class="op-check"><i class="fa fa-solid fa-check"></i></span> Motors, pumps, irrigation checks</li>
+          <li><span class="op-check"><i class="fa fa-solid fa-check"></i></span> Washing machine &amp; water purifier check</li>
+          <li><span class="op-check"><i class="fa fa-solid fa-check"></i></span> 1 AC serviced per month</li>
+          <li><span class="op-check"><i class="fa fa-solid fa-check"></i></span> Router &amp; modem check</li>
+          <li><span class="op-check"><i class="fa fa-solid fa-check"></i></span> Indoor &amp; outdoor plant watering monthly</li>
+          <li><span class="op-check"><i class="fa fa-solid fa-check"></i></span> Inverter &amp; battery maintenance (quarterly)</li>
+        </ul>
+      </div>
+
+      <!-- Elite -->
+      <div class="op-card">
+        <div class="op-freq"><i class="fa fa-solid fa-calendar-check"></i> Once every week</div>
+        <h3 class="op-plan-name">Elite</h3>
+        <p class="op-plan-desc">High-touch property care with full-spectrum upkeep — ideal for actively used homes or VIP clients.</p>
+        <div class="op-icon-row">
+          <div class="op-icon-pill"><i class="fa fa-solid fa-solar-panel"></i> Solar Cleaning</div>
+          <div class="op-icon-pill"><i class="fa fa-solid fa-droplet"></i> Tank Cleaning</div>
+          <div class="op-icon-pill"><i class="fa fa-solid fa-shield-halved"></i> Full Diagnostics</div>
+        </div>
+        <div class="op-price-block">
+          <span class="op-currency">₹</span>
+          <span class="op-amount">3,999</span>
+          <span class="op-per">/ visit</span>
+        </div>
+        <div class="op-btns">
+          <a href="tel:+919074205288" class="op-btn-call"><i class="fa fa-solid fa-phone"></i> Call Now</a>
+          <a href="https://wa.me/919074205288?text=Hi%2C%20I%27m%20interested%20in%20the%20Elite%20plan" target="_blank" class="op-btn-wa"><i class="fa fa-brands fa-whatsapp" style="font-size:15px;"></i> WhatsApp Us</a>
+        </div>
+        <div class="op-features-label">Includes</div>
+        <ul class="op-features">
+          <li><span class="op-check"><i class="fa fa-solid fa-check"></i></span> Weekly visits up to 3BHK</li>
+          <li><span class="op-check"><i class="fa fa-solid fa-check"></i></span> Weekly photos &amp; videos</li>
+          <li><span class="op-check"><i class="fa fa-solid fa-check"></i></span> Weekly air-out doors &amp; windows</li>
+          <li><span class="op-check"><i class="fa fa-solid fa-check"></i></span> Full system load &amp; storm readiness</li>
+          <li><span class="op-check"><i class="fa fa-solid fa-check"></i></span> Monsoon preventive cleaning</li>
+          <li><span class="op-check"><i class="fa fa-solid fa-check"></i></span> Full appliance performance check</li>
+          <li><span class="op-check"><i class="fa fa-solid fa-check"></i></span> All ACs serviced monthly</li>
+          <li><span class="op-check"><i class="fa fa-solid fa-check"></i></span> Full system diagnostics</li>
+          <li><span class="op-check"><i class="fa fa-solid fa-check"></i></span> Indoor &amp; outdoor plants weekly</li>
+          <li><span class="op-check"><i class="fa fa-solid fa-check"></i></span> Inverter &amp; batteries quarterly</li>
+          <li><span class="op-check"><i class="fa fa-solid fa-check"></i></span> Solar panel cleaning monthly</li>
+          <li><span class="op-check"><i class="fa fa-solid fa-check"></i></span> Water tank cleaning monthly</li>
+          <li><span class="op-check"><i class="fa fa-solid fa-check"></i></span> Annual property-related services</li>
+          <li><span class="op-check"><i class="fa fa-solid fa-check"></i></span> Drainage &amp; roof cleaning quarterly</li>
+          <li><span class="op-check"><i class="fa fa-solid fa-check"></i></span> Terrace &amp; compound cleaning quarterly</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+ <!-- Property management End -->
 
     <!-- Service Start -->
     <div class="container-fluid py-5">
