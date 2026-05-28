@@ -165,7 +165,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <ol class="breadcrumb justify-content-center justify-content-lg-end mb-0">
                                <div class="button-container " >
             <!-- WhatsApp button -->
-            <button class="hidden-button"  onclick="window.location.href='tel:+919074205288'">
+            <button class="hidden-button"  onclick=" trackCall(); window.location.href='tel:+919074205288'">
              <span class="desktop-text">
         <i class="fa fa-phone text-black"></i> +919074205288
     </span>
@@ -177,7 +177,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </button>
         
             <!-- Direct Call button -->
-            <button class="service-button" onclick="window.location.href='whatsapp://send?phone=+919074205288&text=Hi'"><i style=" color: #25D366;" class="fab fa-whatsapp fa-2x"></i>
+            <button class="service-button" onclick="trackWhatsapp(); window.location.href='whatsapp://send?phone=+919074205288&text=Hi'"><i style=" color: #25D366;" class="fab fa-whatsapp fa-2x"></i>
                 Message
             </button>
         </div>
@@ -205,7 +205,7 @@ Our team is always ready to assist with any inquiries you may have. Whether you�
 
 If you have any suggestions or feedback, we’d be happy to hear those too — your input is valuable to us as we continue to improve.</p>
                     <div class="wow fadeIn" data-wow-delay="0.3s">
-                       <form  onsubmit="sendToWhatsApp(); return false;">
+                       <form  onsubmit="trackFormSubmit();sendToWhatsApp(); return false;">
 
                             <div class="row g-3">
                                 <div class="col-md-6">
@@ -603,7 +603,30 @@ opposite Muncipal Townhall, Thirunilath Housing Colony, South Kalamassery, Kalam
       </style>
 
 <!-- WhatsApp Button -->
-
+  <script>
+function trackCall() {
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: "call_click"
+  });
+}
+</script>
+<script>
+function trackWhatsapp() {
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: "whatsapp_click"
+  });
+}
+</script>
+<script>
+function trackFormSubmit() {
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: "form_submit"
+  });
+}
+</script>
     <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>

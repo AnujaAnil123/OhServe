@@ -101,12 +101,12 @@
                             <div class="button-container">
             
             <!-- WhatsApp button -->
-            <button class="hidden-button" onclick="window.location.href='tel:+919074205288'">
+            <button class="hidden-button" onclick="trackCall(); window.location.href='tel:+919074205288'">
               <i class="fa fa-phone  text-white"></i>  Call Now
             </button>
         
             <!-- Direct Call button -->
-            <button class="service-button" onclick="window.location.href='whatsapp://send?phone=+919074205288&text=Hi'"><i style=" color: #25D366;" class="fab fa-whatsapp fa-2x"></i>
+            <button class="service-button" onclick="trackWhatsapp(); window.location.href='whatsapp://send?phone=+919074205288&text=Hi'"><i style=" color: #25D366;" class="fab fa-whatsapp fa-2x"></i>
                 Message
             </button>
         </div>
@@ -388,7 +388,22 @@ opposite Muncipal Townhall, Thirunilath Housing Colony, South Kalamassery, Kalam
       </style>
 
 <!-- WhatsApp Button -->
-
+  <script>
+function trackCall() {
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: "call_click"
+  });
+}
+</script>
+<script>
+function trackWhatsapp() {
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: "whatsapp_click"
+  });
+}
+</script>
     <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
