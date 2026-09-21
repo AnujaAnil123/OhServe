@@ -210,7 +210,7 @@ Our team is always ready to assist with any inquiries you may have. Whether you�
 
 If you have any suggestions or feedback, we’d be happy to hear those too — your input is valuable to us as we continue to improve.</p>
                     <div class="wow fadeIn" data-wow-delay="0.3s">
-                       <form  onsubmit="trackFormSubmit();sendToWhatsApp(); return false;">
+                      <form onsubmit="sendToWhatsApp(); return false;">
 
                             <div class="row g-3">
                                 <div class="col-md-6">
@@ -250,23 +250,38 @@ If you have any suggestions or feedback, we’d be happy to hear those too — y
             </div>
         </div>
     </div>
-    <script>
+    
 
-function sendToWhatsApp() {
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const subject = document.getElementById("subject").value;
-  const message = document.getElementById("message").value;
+
    
 
 
-  const phone = "919074205288"; // Your WhatsApp number without '+'
-  
-  const text = `*New Inquiry from Website* \n *Name:* ${name} \n *Email:* ${email} \n *Subject:* ${subject} \n *Message:* ${message}`;
-  const encodedText = encodeURIComponent(text);
+  <script>
+function sendToWhatsApp() {
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const subject = document.getElementById("subject").value.trim();
+    const message = document.getElementById("message").value.trim();
 
-  // Opens WhatsApp app directly on mobile
-  window.location.href = `whatsapp://send?phone=${phone}?&text=${encodedText}`;
+    const phone = "919074205288";
+
+    const text = `*New Inquiry from Website*
+*Name:* ${name}
+*Email:* ${email}
+*Subject:* ${subject}
+*Message:* ${message}`;
+
+    const encodedText = encodeURIComponent(text);
+
+    // Send custom event to Google Tag Manager
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+        event: "whatsapp_form_submit"
+    });
+
+    // Open WhatsApp
+    window.location.href =
+        `whatsapp://send?phone=${phone}&text=${encodedText}`;
 }
 
 
@@ -495,11 +510,27 @@ function sendToWhatsApp() {
       </h2>
 
       <div class="newsletter-buttons">
-        <a href="tel:+919074205288" class="btn-phone"><i class="fa fa-phone"></i></a>
-        <a href="whatsapp://send?phone=+919074205288&text=Hi" class="btn-whatsapp"><i class="fab fa-whatsapp"></i></a>
-        <a href="https://www.instagram.com/ohserve?igsh=d2hsaXg2NWU2d3E2" class="btn-instagram"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.facebook.com/profile.php?id=61585169570013" class="btn-facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="mailto:info@ohserve.com" class="btn-email"><i class="fa fa-envelope"></i></a>
+       <button type="button" onclick="window.location.href='tel:+919074205288';" class="btn-phone">
+    <i class="fa fa-phone"></i>
+</button>
+
+<button type="button"
+        onclick="window.open('https://wa.me/919074205288?text=Hi', '_blank');"
+        class="btn-whatsapp">
+    <i class="fab fa-whatsapp"></i>
+</button>
+
+<button type="button" onclick="window.open('https://www.instagram.com/ohserve?igsh=d2hsaXg2NWU2d3E2', '_blank');" class="btn-instagram">
+    <i class="fab fa-instagram"></i>
+</button>
+
+<button type="button" onclick="window.open('https://www.facebook.com/profile.php?id=61585169570013', '_blank');" class="btn-facebook">
+    <i class="fab fa-facebook-f"></i>
+</button>
+
+<button type="button" onclick="window.location.href='mailto:info@ohserve.com';" class="btn-email">
+    <i class="fa fa-envelope"></i>
+</button>
       </div>
     </div>
 
@@ -585,12 +616,14 @@ opposite Muncipal Townhall, Thirunilath Housing Colony, South Kalamassery, Kalam
 </a>
 
 <!-- WhatsApp Button -->
-<a  style="border-radius: 25px;" onclick="window.location.href='whatsapp://send?phone=+919074205288&text=Hi'"
-   class="btn btn-lg btn-primary btn-lg-square back-to-top whatsapp-float btn-lg btn-primary btn-lg-square " 
-   target="_blank" 
-   rel="noopener noreferrer">
-  <i style="scale: 0.8; color: #25D366;" class="fab fa-whatsapp"></i>
-</a>
+ <button
+    type="button"
+    style="border-radius: 25px;"
+    onclick="window.open('https://wa.me/919074205288?text=Hi', '_blank');"
+    class="btn btn-lg btn-primary btn-lg-square back-to-top whatsapp-float"
+>
+    <i style="scale: 0.8; color: #25D366;" class="fab fa-whatsapp"></i>
+</button>
 
     <style>
       .whatsapp-float {
